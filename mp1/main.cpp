@@ -17,6 +17,10 @@ int hms_to_secs(int hour, int minutes, int seconds) {
   return result;
 }
 
+int swap(int a, int b) {
+  return b;
+}
+
 int main() {
   double value_to_raise;
   int power_to_raise;
@@ -55,6 +59,24 @@ int main() {
       cout << "\nThat's a negative number of hours. Loop's over.\n";
     }
   }
+
+  cout << "\nWatch while I swap these numbers.";
+
+  int a;
+  cout << "\nEnter a number for A: ";
+  cin >> a;
+
+  int b;
+  cout << "\nEnter a number for B: ";
+  cin >> b;
+
+  int temp = a;
+  a = swap(a,b);
+  b = swap(b,temp);
+
+  cout << "A is now equal to: " << a << " and B is now equal to: " << b;
+
+  cout << "\n\nMagic.\n\n";
 
   return 0;
 }
