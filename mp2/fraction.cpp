@@ -33,11 +33,11 @@ operations convert_selection_to_int (std::string const& selection) {
 
 int main() {
   while (true) {
-    Fraction empty_fraction_one = Fraction();
-    Fraction empty_fraction_two = Fraction();
+    Fraction fraction_one = Fraction();
+    Fraction fraction_two = Fraction();
 
-    empty_fraction_one.Input();
-    empty_fraction_two.Input();
+    fraction_one.Input();
+    fraction_two.Input();
 
     string operation;
     std::cout << "\nSelect an operation by entering a letter: \n";
@@ -51,19 +51,19 @@ int main() {
 
     switch (convert_selection_to_int(operation)) {
       case ADD: {
-        Fraction added_fraction = Fraction().Add(empty_fraction_one, empty_fraction_two);
+        Fraction added_fraction = fraction_one.Add(fraction_two);
         added_fraction.Print();
       } break;
       case SUBTRACT: {
-        Fraction subtracted_fraction = Fraction().Subtract(empty_fraction_one, empty_fraction_two);
+        Fraction subtracted_fraction = fraction_one.Subtract(fraction_two);
         subtracted_fraction.Print();
       } break;
       case MULTIPLY: {
-        Fraction multiplied_result = Fraction().Multiply(empty_fraction_one, empty_fraction_two);
+        Fraction multiplied_result = fraction_one.Multiply(fraction_two);
         multiplied_result.Print();
       } break;
       case DIVIDE: {
-        Fraction divided_result = Fraction().Divide(empty_fraction_one, empty_fraction_two);
+        Fraction divided_result = fraction_one.Divide(fraction_two);
         divided_result.Print();
       } break;
       case QUIT: return 0; break;

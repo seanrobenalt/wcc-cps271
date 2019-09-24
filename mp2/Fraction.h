@@ -54,6 +54,64 @@ class Fraction {
       std::cout << "\n" << numerator << "/" << denominator << "\n";
     };
 
+    Fraction Add(Fraction one_fraction) {
+      Fraction f;
+
+      int common_denominator = denominator * one_fraction.denominator;
+      int first_fraction_numerator = numerator * one_fraction.denominator;
+      int second_fraction_numerator = denominator * one_fraction.numerator;
+
+      f.numerator = first_fraction_numerator + second_fraction_numerator;
+	    f.denominator = common_denominator;
+
+      simplify(f.numerator, f.denominator);
+
+	    return f;
+    };
+
+    Fraction Subtract(Fraction one_fraction) {
+      Fraction f;
+
+      int common_denominator = denominator * one_fraction.denominator;
+      int first_fraction_numerator = numerator * one_fraction.denominator;
+      int second_fraction_numerator = denominator * one_fraction.numerator;
+
+      f.numerator = first_fraction_numerator - second_fraction_numerator;
+	    f.denominator = common_denominator;
+
+      simplify(f.numerator, f.denominator);
+
+	    return f;
+    };
+
+    Fraction Multiply(Fraction one_fraction) {
+      Fraction f;
+
+      int new_numerator = numerator * one_fraction.numerator;
+      int new_denominator = denominator * one_fraction.denominator;
+
+      simplify(new_numerator, new_denominator);
+
+      f.numerator = new_numerator;
+      f.denominator = new_denominator;
+
+      return f;
+    };
+
+    Fraction Divide(Fraction one_fraction) {
+      Fraction f;
+
+      int final_numerator = numerator * one_fraction.denominator;
+      int final_denominator = denominator * one_fraction.numerator;
+
+      simplify(final_numerator, final_denominator);
+
+      f.numerator = final_numerator;
+      f.denominator = final_denominator;
+
+      return f;
+    };
+
     Fraction Add(Fraction first_fraction, Fraction second_fraction) {
       int common_denominator = first_fraction.denominator * second_fraction.denominator;
 
@@ -94,23 +152,13 @@ class Fraction {
     };
 
     Fraction Divide(Fraction first_fraction, Fraction second_fraction) {
-      int common_denominator = first_fraction.denominator * second_fraction.denominator;
 
-      int first_fraction_numerator = first_fraction.numerator * second_fraction.denominator;
-      int second_fraction_numerator = second_fraction.numerator * first_fraction.denominator;
+      int final_numerator = first_fraction.numerator * second_fraction.denominator;
+      int final_denominator = second_fraction.numerator * first_fraction.denominator;
 
-      float final_numerator_float;
-      try {
-        final_numerator_float = first_fraction_numerator / second_fraction_numerator;
-      }
-      catch (...) {
-        std::cout << "\n\nSomething went wrong in the Divide function. Please try again.\n";
-      }
+      simplify(final_numerator, final_denominator);
 
-      int final_numerator = final_numerator_float;
-      simplify(final_numerator, common_denominator);
-
-      Fraction divided_result = Fraction(final_numerator, common_denominator);
+      Fraction divided_result = Fraction(final_numerator, final_denominator);
 
       return divided_result;
     };
