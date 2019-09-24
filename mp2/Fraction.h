@@ -98,8 +98,16 @@ class Fraction {
 
       int first_fraction_numerator = first_fraction.numerator * second_fraction.denominator;
       int second_fraction_numerator = second_fraction.numerator * first_fraction.denominator;
-      int final_numerator = first_fraction_numerator / second_fraction_numerator;
 
+      float final_numerator_float;
+      try {
+        final_numerator_float = first_fraction_numerator / second_fraction_numerator;
+      }
+      catch (...) {
+        std::cout << "\n\nSomething went wrong in the Divide function. Please try again.\n";
+      }
+
+      int final_numerator = final_numerator_float;
       simplify(final_numerator, common_denominator);
 
       Fraction divided_result = Fraction(final_numerator, common_denominator);
