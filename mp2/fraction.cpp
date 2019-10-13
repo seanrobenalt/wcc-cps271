@@ -1,73 +1,168 @@
 #include <iostream>
-#include <fstream>
-#include <iomanip>
 
 using namespace std;
 
 #include "Fraction.h"
 
-enum operations {
-  INVALID,
-  ADD,
-  SUBTRACT,
-  MULTIPLY,
-  DIVIDE,
-  QUIT
+Fraction::Fraction() {
+  numerator = 0;
+  denominator = 1;
 };
 
-operations convert_selection_to_int (std::string const& selection) {
-  if (selection == "A") {
-    return ADD;
-  } else if (selection == "B") {
-    return SUBTRACT;
-  } else if (selection == "C") {
-    return MULTIPLY;
-  } else if (selection == "D") {
-    return DIVIDE;
-  } else if (selection == "q" || selection == "Q") {
-    return QUIT;
-  } else {
-    return INVALID;
-  };
+Fraction::Fraction(int _numerator) {
+  numerator = _numerator;
+  denominator = 1;
 };
 
-int main() {
-  while (true) {
-    Fraction fraction_one = Fraction();
-    Fraction fraction_two = Fraction();
+Fraction::Fraction(double number) {
+  int multiplied = number*100000;
+  numerator = multiplied;
+  denominator = 100000;
+};
 
-    fraction_one.Input();
-    fraction_two.Input();
+Fraction::Fraction(int _numerator, int _denominator) {
 
-    string operation;
-    std::cout << "\nSelect an operation by entering a letter: \n";
-    std::cout << "A for add\nB for subtract\nC for multiply\nD for divide\nOr enter q/Q to quit\n\n";
+  if (_denominator <= 0)
+    _denominator = 1;
 
-    while (!(std::cin >> operation) || convert_selection_to_int(operation) == 0) {
-      std::cin.clear();
-      std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-      std::cout << "\nPlease enter a valid operation from the list: ";
-    }
+  numerator = _numerator;
+  denominator = _denominator;
+};
 
-    switch (convert_selection_to_int(operation)) {
-      case ADD: {
-        Fraction added_fraction = fraction_one.Add(fraction_two);
-        added_fraction.Print();
-      } break;
-      case SUBTRACT: {
-        Fraction subtracted_fraction = fraction_one.Subtract(fraction_two);
-        subtracted_fraction.Print();
-      } break;
-      case MULTIPLY: {
-        Fraction multiplied_result = fraction_one.Multiply(fraction_two);
-        multiplied_result.Print();
-      } break;
-      case DIVIDE: {
-        Fraction divided_result = fraction_one.Divide(fraction_two);
-        divided_result.Print();
-      } break;
-      case QUIT: return 0; break;
-      case INVALID: cout << "\n\nSomething went wrong. Try running the program again.\n"; break;
+void simplify (int &numerator, int &denominator) {
+  for (int i = denominator * numerator; i > 1; i--) {
+    if ((denominator % i == 0) && (numerator % i == 0)) {
+      denominator /= i;
+      numerator /= i;
     }
   }
 }
+
+void Fraction::Input() {
+  std::cout << "\nEnter a numerator: ";
+  while (!(std::cin >> numerator)) {
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    std::cout << "\n\nInvalid. Please input a number for the numerator: ";
+  }
+
+  std::cout << "\nEnter a denominator: ";
+  while (!(std::cin >> denominator) || denominator == 0) {
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    std::cout << "\n\nInvalid. Please input a number (not equal to zero) for the denominator: ";
+  }
+};
+
+void Fraction::Print() {
+  std::cout << "\n" << numerator << "/" << denominator << "\n";
+};
+
+Fraction Fraction::Add(Fraction one_fraction) {
+  Fraction f;
+
+  int common_denominator = denominator * one_fraction.denominator;
+  int first_fraction_numerator = numerator * one_fraction.denominator;
+  int second_fraction_numerator = denominator * one_fraction.numerator;
+
+  f.numerator = first_fraction_numerator + second_fraction_numerator;
+  f.denominator = common_denominator;
+
+  simplify(f.numerator, f.denominator);
+
+  return f;
+};
+
+Fraction Fraction::Subtract(Fraction one_fraction) {
+  Fraction f;
+
+  int common_denominator = denominator * one_fraction.denominator;
+  int first_fraction_numerator = numerator * one_fraction.denominator;
+  int second_fraction_numerator = denominator * one_fraction.numerator;
+
+  f.numerator = first_fraction_numerator - second_fraction_numerator;
+  f.denominator = common_denominator;
+
+  simplify(f.numerator, f.denominator);
+
+  return f;
+};
+
+Fraction Fraction::Multiply(Fraction one_fraction) {
+  Fraction f;
+
+  int new_numerator = numerator * one_fraction.numerator;
+  int new_denominator = denominator * one_fraction.denominator;
+
+  simplify(new_numerator, new_denominator);
+
+  f.numerator = new_numerator;
+  f.denominator = new_denominator;
+
+  return f;
+};
+
+Fraction Fraction::Divide(Fraction one_fraction) {
+  Fraction f;
+
+  int final_numerator = numerator * one_fraction.denominator;
+  int final_denominator = denominator * one_fraction.numerator;
+
+  simplify(final_numerator, final_denominator);
+
+  f.numerator = final_numerator;
+  f.denominator = final_denominator;
+
+  return f;
+};
+
+Fraction Fraction::Add(Fraction first_fraction, Fraction second_fraction) {
+  int common_denominator = first_fraction.denominator * second_fraction.denominator;
+
+  int first_fraction_numerator = first_fraction.numerator * second_fraction.denominator;
+  int second_fraction_numerator = second_fraction.numerator * first_fraction.denominator;
+  int final_numerator = first_fraction_numerator + second_fraction_numerator;
+
+  simplify(final_numerator, common_denominator);
+
+  Fraction added_result = Fraction(final_numerator, common_denominator);
+
+  return added_result;
+};
+
+Fraction Fraction::Subtract(Fraction first_fraction, Fraction second_fraction) {
+  int common_denominator = first_fraction.denominator * second_fraction.denominator;
+
+  int first_fraction_numerator = first_fraction.numerator * second_fraction.denominator;
+  int second_fraction_numerator = second_fraction.numerator * first_fraction.denominator;
+  int final_numerator = first_fraction_numerator - second_fraction_numerator;
+
+  simplify(final_numerator, common_denominator);
+
+  Fraction subtracted_result = Fraction(final_numerator, common_denominator);
+
+  return subtracted_result;
+};
+
+Fraction Fraction::Multiply(Fraction first_fraction, Fraction second_fraction) {
+  int new_numerator = first_fraction.numerator * second_fraction.numerator;
+  int new_denominator = first_fraction.denominator * second_fraction.denominator;
+
+  simplify(new_numerator, new_denominator);
+
+  Fraction multiplied_result = Fraction(new_numerator, new_denominator);
+
+  return multiplied_result;
+};
+
+Fraction Fraction::Divide(Fraction first_fraction, Fraction second_fraction) {
+
+  int final_numerator = first_fraction.numerator * second_fraction.denominator;
+  int final_denominator = second_fraction.numerator * first_fraction.denominator;
+
+  simplify(final_numerator, final_denominator);
+
+  Fraction divided_result = Fraction(final_numerator, final_denominator);
+
+  return divided_result;
+};
