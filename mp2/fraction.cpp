@@ -29,7 +29,7 @@ Fraction::Fraction(int _numerator, int _denominator) {
   denominator = _denominator;
 };
 
-void simplify (int &numerator, int &denominator) {
+void Fraction::simplify (int &numerator, int &denominator) {
   for (int i = denominator * numerator; i > 1; i--) {
     if ((denominator % i == 0) && (numerator % i == 0)) {
       denominator /= i;
