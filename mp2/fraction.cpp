@@ -140,14 +140,10 @@ void Fraction::Multiply(Fraction first_fraction, Fraction second_fraction) {
   Fraction::simplify(numerator, denominator);
 };
 
-Fraction Fraction::Divide(Fraction first_fraction, Fraction second_fraction) {
+void Fraction::Divide(Fraction first_fraction, Fraction second_fraction) {
 
-  int final_numerator = first_fraction.numerator * second_fraction.denominator;
-  int final_denominator = second_fraction.numerator * first_fraction.denominator;
+  numerator = first_fraction.numerator * second_fraction.denominator;
+  denominator = second_fraction.numerator * first_fraction.denominator;
 
-  simplify(final_numerator, final_denominator);
-
-  Fraction divided_result = Fraction(final_numerator, final_denominator);
-
-  return divided_result;
+  Fraction::simplify(numerator, denominator);
 };

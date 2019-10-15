@@ -64,8 +64,8 @@ int main() {
         fraction_three.Print();
       } break;
       case DIVIDE: {
-        Fraction divided_result = fraction_one.Divide(fraction_two);
-        divided_result.Print();
+        fraction_three.Divide(fraction_one, fraction_two);
+        fraction_three.Print();
       } break;
       case QUIT: return 0; break;
       case INVALID: cout << "\n\nSomething went wrong. Try running the program again.\n"; break;
