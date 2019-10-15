@@ -60,8 +60,8 @@ int main() {
         fraction_three.Print();
       } break;
       case MULTIPLY: {
-        Fraction multiplied_result = fraction_one.Multiply(fraction_two);
-        multiplied_result.Print();
+        fraction_three.Multiply(fraction_one, fraction_two);
+        fraction_three.Print();
       } break;
       case DIVIDE: {
         Fraction divided_result = fraction_one.Divide(fraction_two);

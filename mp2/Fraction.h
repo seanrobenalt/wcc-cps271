@@ -26,7 +26,7 @@ public:
   Fraction Divide(Fraction one_fraction);
   void Add(Fraction first_fraction, Fraction second_fraction);
   void Subtract(Fraction first_fraction, Fraction second_fraction);
-  Fraction Multiply(Fraction first_fraction, Fraction second_fraction);
+  void Multiply(Fraction first_fraction, Fraction second_fraction);
   Fraction Divide(Fraction first_fraction, Fraction second_fraction);
 };
 
