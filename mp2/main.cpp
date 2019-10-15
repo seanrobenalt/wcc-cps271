@@ -35,6 +35,7 @@ int main() {
   while (true) {
     Fraction fraction_one = Fraction();
     Fraction fraction_two = Fraction();
+    Fraction fraction_three = Fraction();
 
     fraction_one.Input();
     fraction_two.Input();
@@ -51,8 +52,8 @@ int main() {
 
     switch (convert_selection_to_int(operation)) {
       case ADD: {
-        Fraction added_fraction = fraction_one.Add(fraction_two);
-        added_fraction.Print();
+        fraction_three.Add(fraction_one, fraction_two);
+        fraction_three.Print();
       } break;
       case SUBTRACT: {
         Fraction subtracted_fraction = fraction_one.Subtract(fraction_two);
