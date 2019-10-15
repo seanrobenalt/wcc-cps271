@@ -124,18 +124,12 @@ void Fraction::Add(Fraction first_fraction, Fraction second_fraction) {
   Fraction::simplify(numerator, denominator);
 };
 
-Fraction Fraction::Subtract(Fraction first_fraction, Fraction second_fraction) {
-  int common_denominator = first_fraction.denominator * second_fraction.denominator;
+void Fraction::Subtract(Fraction first_fraction, Fraction second_fraction) {
 
-  int first_fraction_numerator = first_fraction.numerator * second_fraction.denominator;
-  int second_fraction_numerator = second_fraction.numerator * first_fraction.denominator;
-  int final_numerator = first_fraction_numerator - second_fraction_numerator;
+  numerator = (first_fraction.numerator * second_fraction.denominator) - (second_fraction.numerator * first_fraction.denominator);
+  denominator = first_fraction.denominator * second_fraction.denominator;
 
-  simplify(final_numerator, common_denominator);
-
-  Fraction subtracted_result = Fraction(final_numerator, common_denominator);
-
-  return subtracted_result;
+  Fraction::simplify(numerator, denominator);
 };
 
 Fraction Fraction::Multiply(Fraction first_fraction, Fraction second_fraction) {

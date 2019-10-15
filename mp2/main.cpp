@@ -56,8 +56,8 @@ int main() {
         fraction_three.Print();
       } break;
       case SUBTRACT: {
-        Fraction subtracted_fraction = fraction_one.Subtract(fraction_two);
-        subtracted_fraction.Print();
+        fraction_three.Subtract(fraction_one, fraction_two);
+        fraction_three.Print();
       } break;
       case MULTIPLY: {
         Fraction multiplied_result = fraction_one.Multiply(fraction_two);
