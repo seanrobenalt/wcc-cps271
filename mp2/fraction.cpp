@@ -61,14 +61,10 @@ void Fraction::Print() {
 Fraction Fraction::Add(Fraction one_fraction) {
   Fraction f;
 
-  int common_denominator = denominator * one_fraction.denominator;
-  int first_fraction_numerator = numerator * one_fraction.denominator;
-  int second_fraction_numerator = denominator * one_fraction.numerator;
+  f.numerator = (numerator * one_fraction.denominator) + (denominator * one_fraction.numerator);
+  f.denominator = denominator * one_fraction.denominator;
 
-  f.numerator = first_fraction_numerator + second_fraction_numerator;
-  f.denominator = common_denominator;
-
-  simplify(f.numerator, f.denominator);
+  Fraction::simplify(f.numerator, f.denominator);
 
   return f;
 };
@@ -76,14 +72,10 @@ Fraction Fraction::Add(Fraction one_fraction) {
 Fraction Fraction::Subtract(Fraction one_fraction) {
   Fraction f;
 
-  int common_denominator = denominator * one_fraction.denominator;
-  int first_fraction_numerator = numerator * one_fraction.denominator;
-  int second_fraction_numerator = denominator * one_fraction.numerator;
+  f.numerator = (numerator * one_fraction.denominator) - (denominator * one_fraction.numerator);
+  f.denominator = denominator * one_fraction.denominator;
 
-  f.numerator = first_fraction_numerator - second_fraction_numerator;
-  f.denominator = common_denominator;
-
-  simplify(f.numerator, f.denominator);
+  Fraction::simplify(f.numerator, f.denominator);
 
   return f;
 };
@@ -91,13 +83,10 @@ Fraction Fraction::Subtract(Fraction one_fraction) {
 Fraction Fraction::Multiply(Fraction one_fraction) {
   Fraction f;
 
-  int new_numerator = numerator * one_fraction.numerator;
-  int new_denominator = denominator * one_fraction.denominator;
+  f.numerator = numerator * one_fraction.numerator;
+  f.denominator = denominator * one_fraction.denominator;
 
-  simplify(new_numerator, new_denominator);
-
-  f.numerator = new_numerator;
-  f.denominator = new_denominator;
+  Fraction::simplify(f.numerator, f.denominator);
 
   return f;
 };
@@ -105,13 +94,10 @@ Fraction Fraction::Multiply(Fraction one_fraction) {
 Fraction Fraction::Divide(Fraction one_fraction) {
   Fraction f;
 
-  int final_numerator = numerator * one_fraction.denominator;
-  int final_denominator = denominator * one_fraction.numerator;
+  f.numerator  = numerator * one_fraction.denominator;
+  f.denominator = denominator * one_fraction.numerator;
 
-  simplify(final_numerator, final_denominator);
-
-  f.numerator = final_numerator;
-  f.denominator = final_denominator;
+  Fraction::simplify(f.numerator, f.denominator);
 
   return f;
 };
