@@ -29,6 +29,19 @@ public:
   void Subtract(Fraction first_fraction, Fraction second_fraction);
   void Multiply(Fraction first_fraction, Fraction second_fraction);
   void Divide(Fraction first_fraction, Fraction second_fraction);
+
+  Fraction BitwiseInvert(Fraction one_fraction);
+  Fraction IteratePositive(Fraction one_fraction);
+  Fraction IterateNegative(Fraction one_fraction);
+  bool IsLessThan(Fraction one_fraction);
+  bool IsGreaterThan(Fraction one_fraction);
+  bool IsLessThanOrEqual(Fraction one_fraction);
+  bool IsGreaterThanOrEqual(Fraction one_fraction);
+  bool IsEqual(Fraction one_fraction);
+  bool IsNotEqual(Fraction one_fraction);
+  int Negate();
+  double CastToDouble();
+  float CastToFloat();
 };
 
 #endif

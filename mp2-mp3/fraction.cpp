@@ -102,6 +102,69 @@ Fraction Fraction::Divide(Fraction one_fraction) {
   return f;
 };
 
+Fraction Fraction::BitwiseInvert(Fraction one_fraction) {
+  Fraction::simplify(numerator, denominator);
+
+  one_fraction = Fraction(~numerator, ~denominator);
+  return one_fraction;
+};
+
+Fraction Fraction::IteratePositive(Fraction one_fraction) {
+  numerator++;
+  denominator++;
+
+  Fraction::simplify(numerator, denominator);
+
+  one_fraction = Fraction(numerator, denominator);
+  return one_fraction;
+};
+
+Fraction Fraction::IterateNegative(Fraction one_fraction) {
+  numerator--;
+  denominator--;
+
+  Fraction::simplify(numerator, denominator);
+
+  one_fraction = Fraction(numerator, denominator);
+  return one_fraction;
+};
+
+bool Fraction::IsLessThan(Fraction one_fraction) {
+  return (float)numerator/denominator<(float)one_fraction.numerator/one_fraction.denominator;
+};
+
+bool Fraction::IsGreaterThan(Fraction one_fraction) {
+  return (float)numerator/denominator>(float)one_fraction.numerator/one_fraction.denominator;
+};
+
+bool Fraction::IsLessThanOrEqual(Fraction one_fraction) {
+  return (float)numerator/denominator<=(float)one_fraction.numerator/one_fraction.denominator;
+};
+
+bool Fraction::IsGreaterThanOrEqual(Fraction one_fraction) {
+  return (float)numerator/denominator>=(float)one_fraction.numerator/one_fraction.denominator;
+};
+
+bool Fraction::IsEqual(Fraction one_fraction) {
+  return (float)numerator/denominator==(float)one_fraction.numerator/one_fraction.denominator;
+};
+
+bool Fraction::IsNotEqual(Fraction one_fraction) {
+  return (float)numerator/denominator!=(float)one_fraction.numerator/one_fraction.denominator;
+};
+
+int Fraction::Negate() {
+  return !(float)numerator/denominator;
+};
+
+double Fraction::CastToDouble() {
+  return (double)numerator/denominator;
+};
+
+float Fraction::CastToFloat() {
+  return (float)numerator/denominator;
+};
+
 void Fraction::Add(Fraction first_fraction, Fraction second_fraction) {
 
   numerator = (first_fraction.numerator * second_fraction.denominator) + (second_fraction.numerator * first_fraction.denominator);
