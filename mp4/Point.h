@@ -1,5 +1,5 @@
-#ifndef FRACTION_H
-#define FRACTION_H
+#ifndef POINT_H
+#define POINT_H
 
 class Point
 {
@@ -9,7 +9,7 @@ private:
   int y;
 
 public:
-
+  explicit Point();
   explicit Point(int x, int y);
 
   void SetCoordinates(void);
