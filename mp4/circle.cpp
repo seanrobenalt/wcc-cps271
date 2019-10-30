@@ -17,9 +17,20 @@ void Circle::SetRadius(void)
   cin >> radius;
 }
 
+void Circle::SetCenter(void)
+{
+  cout << "Set the center.\n";
+  center.SetCoordinates();
+}
+
 void Circle::PrintRadius(void)
 {
   cout << "Radius is " << radius << "\n";
+}
+
+void Circle::PrintCenter(void)
+{
+  center.PrintCoordinates();
 }
 
 void Circle::PrintAreaAndCircumference(void)

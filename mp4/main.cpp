@@ -14,7 +14,9 @@ int main(void)
   Circle circle = Circle(point, 0);
 
   circle.SetRadius();
+  circle.SetCenter();
   circle.PrintRadius();
+  circle.PrintCenter();
   circle.PrintAreaAndCircumference();
 
   return 0;

@@ -15,7 +15,9 @@ public:
   explicit Circle(Point center, double radius);
 
   void SetRadius(void);
+  void SetCenter(void);
   void PrintRadius(void);
+  void PrintCenter(void);
   void PrintAreaAndCircumference(void);
 };
 
