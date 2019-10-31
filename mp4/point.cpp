@@ -10,10 +10,10 @@ Point::Point()
   y = 0;
 }
 
-Point::Point(int x, int y)
+Point::Point(int a, int b)
 {
-  x = x;
-  y = y;
+  x = a;
+  y = b;
 }
 
 void Point::SetCoordinates(void)
@@ -25,16 +25,18 @@ void Point::SetCoordinates(void)
   cin >> y;
 }
 
-void Point::PrintCoordinates(void)
+void Point::PrintCoordinates(void) const
 {
   cout << "X is " << x << "\n";
   cout << "Y is " << y << "\n";
 }
 
-int Point::GetX(void) {
+int Point::GetX(void) const
+{
   return x;
 }
 
-int Point::GetY(void) {
+int Point::GetY(void) const
+{
   return y;
 }

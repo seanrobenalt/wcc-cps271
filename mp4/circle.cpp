@@ -5,10 +5,16 @@ using namespace std;
 #include "Point.h"
 #include "Circle.h"
 
-Circle::Circle(Point center, double radius)
+Circle::Circle()
 {
   center = Point();
-  radius = radius;
+  radius = 0;
+}
+
+Circle::Circle(const Point &p, double r)
+{
+  center = p;
+  radius = r;
 }
 
 void Circle::SetRadius(void)
@@ -23,18 +29,29 @@ void Circle::SetCenter(void)
   center.SetCoordinates();
 }
 
-void Circle::PrintRadius(void)
+void Circle::PrintRadius(void) const
 {
   cout << "Radius is " << radius << "\n";
 }
 
-void Circle::PrintCenter(void)
+void Circle::PrintCenter(void) const
 {
   center.PrintCoordinates();
 }
 
-void Circle::PrintAreaAndCircumference(void)
+void Circle::PrintAreaAndCircumference(void) const
 {
   cout << "Area is " << ((radius*radius)*3.14) << "\n.";
   cout << "Circumference is " << (2*3.14*radius) << "\n";
+}
+
+double Circle::GetArea(void) const
+{
+  double area = ((radius*radius)*3.14);
+  return area;
+}
+
+double Circle::GetRadius(void) const
+{
+  return radius;
 }

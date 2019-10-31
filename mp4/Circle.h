@@ -5,20 +5,23 @@
 
 class Circle
 {
-private:
+protected:
 
   Point center;
   double radius;
 
 public:
-
-  explicit Circle(Point center, double radius);
+  Circle();
+  Circle(const Point &p, double r);
 
   void SetRadius(void);
   void SetCenter(void);
-  void PrintRadius(void);
-  void PrintCenter(void);
-  void PrintAreaAndCircumference(void);
+  void PrintRadius(void) const;
+  void PrintCenter(void) const;
+  void PrintAreaAndCircumference(void) const;
+
+  double GetArea(void) const;
+  double GetRadius(void) const;
 };
 
 #endif

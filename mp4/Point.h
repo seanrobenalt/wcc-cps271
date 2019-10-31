@@ -3,20 +3,20 @@
 
 class Point
 {
-private:
+protected:
 
   int x;
   int y;
 
 public:
   explicit Point();
-  explicit Point(int x, int y);
+  explicit Point(int a, int b);
 
   void SetCoordinates(void);
-  void PrintCoordinates(void);
+  void PrintCoordinates(void) const;
 
-  int GetX(void);
-  int GetY(void);
+  int GetX(void) const;
+  int GetY(void) const;
 };
 
 #endif
