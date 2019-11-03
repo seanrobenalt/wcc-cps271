@@ -9,8 +9,8 @@ protected:
   int y;
 
 public:
-  explicit Point();
-  explicit Point(int a, int b);
+  Point();
+  Point(int a, int b);
 
   void SetCoordinates(void);
   void PrintCoordinates(void) const;

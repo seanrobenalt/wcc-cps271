@@ -33,5 +33,11 @@ int main(void)
   cyl1.PrintVolume();
   cyl1.PrintSurfaceArea();
 
+  cout << "\nEnter in point info: \n";
+  Point point2;
+  point2.SetCoordinates();
+  cout << "\nYou entered: \n";
+  point2.PrintCoordinates();
+
 	return 0;
 }

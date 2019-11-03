@@ -18,10 +18,7 @@ Point::Point(int a, int b)
 
 void Point::SetCoordinates(void)
 {
-  cout << "Enter X: \n";
   cin >> x;
-
-  cout << "Enter Y: \n";
   cin >> y;
 }
 
