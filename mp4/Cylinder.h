@@ -11,7 +11,7 @@ protected:
   double height;
 
 public:
-
+  Cylinder();
   Cylinder(const Circle &c, int h);
 
   void SetHeight(void);

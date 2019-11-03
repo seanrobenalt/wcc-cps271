@@ -6,6 +6,12 @@ using namespace std;
 #include "Circle.h"
 #include "Cylinder.h"
 
+Cylinder::Cylinder()
+{
+  base = Circle();
+  height = 0;
+}
+
 Cylinder::Cylinder(const Circle &c, int h)
 {
   base = c;
@@ -14,7 +20,6 @@ Cylinder::Cylinder(const Circle &c, int h)
 
 void Cylinder::SetHeight(void)
 {
-  cout << "Enter height: \n";
   cin >> height;
 }
 

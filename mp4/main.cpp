@@ -48,5 +48,19 @@ int main(void)
   cir2.PrintCenter();
   cir2.PrintAreaAndCircumference();
 
+  cout << "\nEnter in cylinder info\n";
+  Cylinder cyl2;
+  cout << "\nEnter height: \n";
+  cyl2.SetHeight();
+  cout << "\nSet radius of base: \n";
+  cyl2.SetRadiusOfBase();
+  cout << "\nSet the center of base w/ (x y)\n";
+  cyl2.SetCenterOfBase();
+  cout << "\nYou entered: \n";
+  cyl2.PrintHeight();
+  cyl2.PrintBase();
+  cyl2.PrintVolume();
+  cyl2.PrintSurfaceArea();
+
 	return 0;
 }
