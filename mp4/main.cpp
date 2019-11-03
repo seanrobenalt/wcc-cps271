@@ -9,8 +9,6 @@ using namespace std;
 int main(void)
 {
 
-  double circ, area, vol, surf_area;
-
 	cout << "\n\nTesting of constant Point, Circle, Cylinder objects..." << endl;
 
 	// create and print out a const Point object
@@ -33,11 +31,22 @@ int main(void)
   cyl1.PrintVolume();
   cyl1.PrintSurfaceArea();
 
-  cout << "\nEnter in point info: \n";
+  cout << "\nEnter in point info (x y): \n";
   Point point2;
   point2.SetCoordinates();
   cout << "\nYou entered: \n";
   point2.PrintCoordinates();
+
+  cout << "\nEnter in circle info\n";
+  Circle cir2;
+  cout << "\nSet radius: \n";
+  cir2.SetRadius();
+  cout << "\nSet the center w/ (x y)\n";
+  cir2.SetCenter();
+  cout << "\nYou entered: \n";
+  cir2.PrintRadius();
+  cir2.PrintCenter();
+  cir2.PrintAreaAndCircumference();
 
 	return 0;
 }

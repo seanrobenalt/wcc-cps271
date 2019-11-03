@@ -19,13 +19,11 @@ Circle::Circle(const Point &p, double r)
 
 void Circle::SetRadius(void)
 {
-  cout << "Enter Radius: \n";
   cin >> radius;
 }
 
 void Circle::SetCenter(void)
 {
-  cout << "Set the center.\n";
   center.SetCoordinates();
 }
 
@@ -41,7 +39,7 @@ void Circle::PrintCenter(void) const
 
 void Circle::PrintAreaAndCircumference(void) const
 {
-  cout << "Area is " << ((radius*radius)*3.14) << "\n.";
+  cout << "Area is " << ((radius*radius)*3.14) << "\n";
   cout << "Circumference is " << (2*3.14*radius) << "\n";
 }
 
