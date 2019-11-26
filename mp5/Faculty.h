@@ -5,8 +5,9 @@
 #include <vector>
 
 #include "MyDate.h"
+#include "Employee.h"
 
-class Faculty
+class Faculty : Employee
 {
 protected:
 

@@ -2,8 +2,9 @@
 #define EMPLOYEE
 
 #include "MyDate.h"
+#include "Person.h"
 
-class Employee
+class Employee : Person
 {
 protected:
   long salary;

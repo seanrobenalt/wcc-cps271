@@ -2,8 +2,9 @@
 #define STUDENT
 
 #include <string>
+#include "Person.h"
 
-class Student
+class Student : Person
 {
 protected:
 

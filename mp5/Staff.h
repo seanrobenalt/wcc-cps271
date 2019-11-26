@@ -2,8 +2,9 @@
 #define STAFF
 
 #include <string>
+#include "Employee.h"
 
-class Staff
+class Staff : Employee
 {
 protected:
   string title;
