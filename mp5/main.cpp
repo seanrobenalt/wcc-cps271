@@ -44,14 +44,12 @@ int main(void)
 	pa->inputData();
 	myList.push_back(pa);
 
-	// print the items out
 	for (std::vector<Person *>::iterator it = myList.begin(); it != myList.end(); ++it)
 	{
 		Person *tp = *it;
 		tp->printData();
 	}
 
-	// program ending.. now delete the items
 	for (std::vector<Person *>::iterator it = myList.begin(); it != myList.end(); ++it)
 	{
 		Person *tp = *it;
