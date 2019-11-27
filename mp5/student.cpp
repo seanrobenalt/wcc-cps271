@@ -10,6 +10,33 @@ Student::Student()
   gpa = 0.0;
 }
 
+Student::Student(string _name, MyDate _birthdate, string _phone, string _email, double _gpa, char _grade)
+{
+  name = _name;
+  birthDate = _birthdate;
+  phoneNumber = _phone;
+  email = _email;
+  gpa = _gpa;
+
+  switch (_grade) {
+    case '0': {
+      gradeStatus = FRESHMAN;
+    } break;
+    case '1': {
+      gradeStatus = SOPHOMORE;
+    } break;
+    case '2': {
+      gradeStatus = JUNIOR;
+    } break;
+    case '3': {
+      gradeStatus = SENIOR;
+    } break;
+    default: {
+      gradeStatus = FRESHMAN;
+    }
+  }
+}
+
 string Student::GradeStatusNames[4] = { "Freshman", "Sophomore", "Junior", "Senior" };
 
 void Student::inputData(void)

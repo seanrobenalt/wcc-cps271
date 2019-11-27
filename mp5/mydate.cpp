@@ -11,6 +11,13 @@ MyDate::MyDate()
   day = 0;
 }
 
+MyDate::MyDate(int _year, int _month, int _day)
+{
+  year = _year;
+  month = _month;
+  day = _day;
+}
+
 void MyDate::inputData(void)
 {
   cin >> year;

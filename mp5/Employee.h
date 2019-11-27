@@ -4,7 +4,7 @@
 #include "MyDate.h"
 #include "Person.h"
 
-class Employee : Person
+class Employee : public Person
 {
 protected:
   long salary;

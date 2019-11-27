@@ -4,7 +4,7 @@
 #include <string>
 #include "Person.h"
 
-class Student : Person
+class Student : public Person
 {
 protected:
 
@@ -22,6 +22,7 @@ protected:
 
 public:
   Student();
+  Student(string name, MyDate birthdate, string phone, string email, double gpa, char grade);
 
   void inputData(void);
   void printData(void);

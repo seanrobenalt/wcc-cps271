@@ -7,7 +7,7 @@
 #include "MyDate.h"
 #include "Employee.h"
 
-class Faculty : Employee
+class Faculty : public Employee
 {
 protected:
 
@@ -17,6 +17,7 @@ protected:
 
 public:
   Faculty();
+  Faculty(string name, MyDate birthdate, string phone, string email, long salary, MyDate dateHired, int officeRoomNumber, bool tenure, MyDate officeHours);
 
   void inputData(void);
   void printData(void);

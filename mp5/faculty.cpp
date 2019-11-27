@@ -11,6 +11,20 @@ Faculty::Faculty()
   officeHours;
 }
 
+Faculty::Faculty(string _name, MyDate _birthdate, string _phone, string _email, long _salary, MyDate _dateHired, int _officeRoomNumber, bool _tenure, MyDate _officeHours)
+{
+  name = _name;
+  birthDate = _birthdate;
+  phoneNumber = _phone;
+  email = _email;
+  salary = _salary;
+  dateHired = _dateHired;
+  officeRoomNumber = _officeRoomNumber;
+  tenure = _tenure;
+  officeHours;
+  officeHours.push_back(_officeHours);
+}
+
 void Faculty::inputData(void)
 {
   MyDate day;

@@ -10,6 +10,7 @@ protected:
 
 public:
   MyDate();
+  MyDate(int year, int month, int day);
 
   void inputData(void);
   void printData(void);
