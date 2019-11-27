@@ -12,37 +12,43 @@ int main(void)
 {
   vector<Person *> myList;
 
-  Student *ps;
-  Faculty *pf;
-  Staff *pa;
+  bool continueLoop = true;
 
-	const MyDate bd(2000, 8, 4);
-	const MyDate hd(2019, 10, 21);
-	const MyDate oh(2019, 9, 13);
+  while(continueLoop) {
+    cout << "\n\nYou will now enter a student, faculty and staff.";
 
-	Student *ps1 = new Student("joe", bd, "231-6752", "joe@aol.com", 3.4, '0');
-	myList.push_back(ps1);
+    Student *ps;
+    Faculty *pf;
+    Staff *pa;
 
-	Faculty *pf1 = new Faculty("james", bd, "676-3434", "james@aol.com", 55000, hd, 110, true, oh);
-	myList.push_back(pf1);
+  	ps = new Student();
+  	ps->inputData();
+  	myList.push_back(ps);
 
-	Staff *pa1 = new Staff("tommy", bd, "111-3333", "tommy@aol.com", 22000, hd, "lawn care");
-	myList.push_back(pa1);
+  	pf = new Faculty();
+  	pf->inputData();
+  	myList.push_back(pf);
 
-	// go get a Student
-	ps = new Student();
-	ps->inputData();
-	myList.push_back(ps);
+  	pa = new Staff();
+    cin.ignore(numeric_limits<streamsize>::max(),'\n');
+  	pa->inputData();
+  	myList.push_back(pa);
 
-	// go get a Faculty
-	pf = new Faculty();
-	pf->inputData();
-	myList.push_back(pf);
+    char val;
+    cout << "\n\nEnter 'a' to add another set of sudent, faculty and staff. Enter 's' to view the people you've entered so far.";
+    cin >> val;
 
-	// go get a Staff
-	pa = new Staff();
-	pa->inputData();
-	myList.push_back(pa);
+    switch (val) {
+      case 'a': break;
+      case 's': {
+        continueLoop = false;
+      } break;
+      default: {
+        cout << "\n\nInvalid entry. Terminating program.";
+        return 0;
+      } break;
+    }
+  }
 
 	for (std::vector<Person *>::iterator it = myList.begin(); it != myList.end(); ++it)
 	{

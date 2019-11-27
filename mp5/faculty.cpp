@@ -57,7 +57,7 @@ void Faculty::inputData(void)
   cout << "\n\nEnter office room number: ";
   cin >> officeRoomNumber;
 
-  cout << "\n\nDoes faculty have tenure? (true/false): ";
+  cout << "\n\nDoes faculty have tenure? (1 for true/0 for false): ";
   cin >> tenure;
 }
 
