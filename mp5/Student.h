@@ -8,7 +8,16 @@ class Student : Person
 {
 protected:
 
-  int gradeStatus;
+  enum GradeStatus {
+    FRESHMAN,
+    SOPHOMORE,
+    JUNIOR,
+    SENIOR
+  };
+
+  static string GradeStatusNames[4];
+
+  Student::GradeStatus gradeStatus;
   double gpa;
 
 public:

@@ -11,9 +11,9 @@ using namespace std;
 int main(void)
 {
 
-  Faculty f;
-  f.inputData();
-  f.printData();
+  Student s;
+  s.inputData();
+  s.printData();
 
   return 0;
 }

@@ -17,8 +17,8 @@ protected:
 public:
   Person();
 
-  void inputData(void);
-  void printData(void);
+  virtual void inputData(void);
+  virtual void printData(void);
 };
 
 #endif
