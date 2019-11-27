@@ -44,7 +44,6 @@ int main(void)
 	pa->inputData();
 	myList.push_back(pa);
 
-	cout << "==========================================" << endl;
 	// print the items out
 	for (std::vector<Person *>::iterator it = myList.begin(); it != myList.end(); ++it)
 	{

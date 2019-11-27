@@ -28,10 +28,14 @@ Faculty::Faculty(string _name, MyDate _birthdate, string _phone, string _email, 
 void Faculty::inputData(void)
 {
   MyDate day;
+  cout << "\n\nEnter office hours year, month and day separated by spaces: ";
   day.inputData();
   officeHours.push_back(day);
 
+  cout << "\n\nEnter office room number: ";
   cin >> officeRoomNumber;
+
+  cout << "\n\nDoes faculty have tenure? (true/false): ";
   cin >> tenure;
 }
 
