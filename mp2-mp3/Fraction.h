@@ -20,7 +20,7 @@ public:
 
   void Print();
 
-  Fraction Add(Fraction one_fraction);
+  Fraction operator+(const Fraction& b);
   Fraction Subtract(Fraction one_fraction);
   Fraction Multiply(Fraction one_fraction);
   Fraction Divide(Fraction one_fraction);

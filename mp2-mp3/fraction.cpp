@@ -58,16 +58,16 @@ void Fraction::Print() {
   std::cout << "\n" << numerator << "/" << denominator << "\n";
 };
 
-Fraction Fraction::Add(Fraction one_fraction) {
-  Fraction f;
+Fraction Fraction::operator+(const Fraction& one_fraction) {
 
+  Fraction f;
   f.numerator = (numerator * one_fraction.denominator) + (denominator * one_fraction.numerator);
   f.denominator = denominator * one_fraction.denominator;
 
   Fraction::simplify(f.numerator, f.denominator);
 
   return f;
-};
+}
 
 Fraction Fraction::Subtract(Fraction one_fraction) {
   Fraction f;

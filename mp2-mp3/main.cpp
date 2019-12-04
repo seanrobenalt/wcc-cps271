@@ -96,7 +96,7 @@ int main() {
 
     switch (convert_selection_to_int(operation)) {
       case ADD: {
-        fraction_three.Add(fraction_one, fraction_two);
+        fraction_three = fraction_one + fraction_two;
         fraction_three.Print();
       } break;
       case SUBTRACT: {
