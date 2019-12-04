@@ -100,15 +100,15 @@ int main() {
         fraction_three.Print();
       } break;
       case SUBTRACT: {
-        fraction_three.Subtract(fraction_one, fraction_two);
+        fraction_three = fraction_one - fraction_two;
         fraction_three.Print();
       } break;
       case MULTIPLY: {
-        fraction_three.Multiply(fraction_one, fraction_two);
+        fraction_three = fraction_one * fraction_two;
         fraction_three.Print();
       } break;
       case DIVIDE: {
-        fraction_three.Divide(fraction_one, fraction_two);
+        fraction_three = fraction_one / fraction_two;
         fraction_three.Print();
       } break;
       case BITWISE_INVERT: {

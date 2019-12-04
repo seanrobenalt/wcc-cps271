@@ -69,7 +69,7 @@ Fraction Fraction::operator+(const Fraction& one_fraction) {
   return f;
 }
 
-Fraction Fraction::Subtract(Fraction one_fraction) {
+Fraction Fraction::operator-(const Fraction& one_fraction) {
   Fraction f;
 
   f.numerator = (numerator * one_fraction.denominator) - (denominator * one_fraction.numerator);
@@ -80,7 +80,7 @@ Fraction Fraction::Subtract(Fraction one_fraction) {
   return f;
 };
 
-Fraction Fraction::Multiply(Fraction one_fraction) {
+Fraction Fraction::operator*(const Fraction& one_fraction) {
   Fraction f;
 
   f.numerator = numerator * one_fraction.numerator;
@@ -91,7 +91,7 @@ Fraction Fraction::Multiply(Fraction one_fraction) {
   return f;
 };
 
-Fraction Fraction::Divide(Fraction one_fraction) {
+Fraction Fraction::operator/(const Fraction& one_fraction) {
   Fraction f;
 
   f.numerator  = numerator * one_fraction.denominator;
