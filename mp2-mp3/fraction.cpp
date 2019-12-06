@@ -102,54 +102,82 @@ Fraction Fraction::operator/(const Fraction& one_fraction) {
   return f;
 };
 
-Fraction Fraction::BitwiseInvert(Fraction one_fraction) {
-  Fraction::simplify(numerator, denominator);
+Fraction Fraction::operator~(void) {
+  Fraction f;
 
-  one_fraction = Fraction(~numerator, ~denominator);
-  return one_fraction;
+  f.numerator = ~numerator;
+  f.denominator = ~denominator;
+
+  Fraction::simplify(f.numerator, f.denominator);
+
+  return f;
 };
 
-Fraction Fraction::IteratePositive(Fraction one_fraction) {
-  numerator++;
-  denominator++;
+Fraction Fraction::operator++(void) {
+  Fraction f;
 
-  Fraction::simplify(numerator, denominator);
+  f.numerator = ++numerator;
+  f.denominator = ++denominator;
 
-  one_fraction = Fraction(numerator, denominator);
-  return one_fraction;
+  Fraction::simplify(f.numerator, f.denominator);
+
+  return f;
 };
 
-Fraction Fraction::IterateNegative(Fraction one_fraction) {
-  numerator--;
-  denominator--;
+Fraction Fraction::operator++(int) {
+  Fraction f;
 
-  Fraction::simplify(numerator, denominator);
+  f.numerator = numerator++;
+  f.denominator = denominator++;
 
-  one_fraction = Fraction(numerator, denominator);
-  return one_fraction;
+  Fraction::simplify(f.numerator, f.denominator);
+
+  return f;
 };
 
-bool Fraction::IsLessThan(Fraction one_fraction) {
+Fraction Fraction::operator--(void) {
+  Fraction f;
+
+  f.numerator = --numerator;
+  f.denominator = --denominator;
+
+  Fraction::simplify(f.numerator, f.denominator);
+
+  return f;
+};
+
+Fraction Fraction::operator--(int) {
+  Fraction f;
+
+  f.numerator = numerator--;
+  f.denominator = denominator--;
+
+  Fraction::simplify(f.numerator, f.denominator);
+
+  return f;
+};
+
+bool Fraction::operator<(const Fraction& one_fraction) {
   return (float)numerator/denominator<(float)one_fraction.numerator/one_fraction.denominator;
 };
 
-bool Fraction::IsGreaterThan(Fraction one_fraction) {
+bool Fraction::operator>(const Fraction& one_fraction) {
   return (float)numerator/denominator>(float)one_fraction.numerator/one_fraction.denominator;
 };
 
-bool Fraction::IsLessThanOrEqual(Fraction one_fraction) {
+bool Fraction::operator<=(const Fraction& one_fraction) {
   return (float)numerator/denominator<=(float)one_fraction.numerator/one_fraction.denominator;
 };
 
-bool Fraction::IsGreaterThanOrEqual(Fraction one_fraction) {
+bool Fraction::operator>=(const Fraction& one_fraction) {
   return (float)numerator/denominator>=(float)one_fraction.numerator/one_fraction.denominator;
 };
 
-bool Fraction::IsEqual(Fraction one_fraction) {
+bool Fraction::operator==(const Fraction& one_fraction) {
   return (float)numerator/denominator==(float)one_fraction.numerator/one_fraction.denominator;
 };
 
-bool Fraction::IsNotEqual(Fraction one_fraction) {
+bool Fraction::operator!=(const Fraction& one_fraction) {
   return (float)numerator/denominator!=(float)one_fraction.numerator/one_fraction.denominator;
 };
 
@@ -163,36 +191,4 @@ double Fraction::CastToDouble() {
 
 float Fraction::CastToFloat() {
   return (float)numerator/denominator;
-};
-
-void Fraction::Add(Fraction first_fraction, Fraction second_fraction) {
-
-  numerator = (first_fraction.numerator * second_fraction.denominator) + (second_fraction.numerator * first_fraction.denominator);
-  denominator = first_fraction.denominator * second_fraction.denominator;
-
-  Fraction::simplify(numerator, denominator);
-};
-
-void Fraction::Subtract(Fraction first_fraction, Fraction second_fraction) {
-
-  numerator = (first_fraction.numerator * second_fraction.denominator) - (second_fraction.numerator * first_fraction.denominator);
-  denominator = first_fraction.denominator * second_fraction.denominator;
-
-  Fraction::simplify(numerator, denominator);
-};
-
-void Fraction::Multiply(Fraction first_fraction, Fraction second_fraction) {
-
-  numerator = first_fraction.numerator * second_fraction.numerator;
-  denominator = first_fraction.denominator * second_fraction.denominator;
-
-  Fraction::simplify(numerator, denominator);
-};
-
-void Fraction::Divide(Fraction first_fraction, Fraction second_fraction) {
-
-  numerator = first_fraction.numerator * second_fraction.denominator;
-  denominator = second_fraction.numerator * first_fraction.denominator;
-
-  Fraction::simplify(numerator, denominator);
 };

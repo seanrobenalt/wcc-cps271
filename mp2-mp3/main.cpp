@@ -112,15 +112,21 @@ int main() {
         fraction_three.Print();
       } break;
       case BITWISE_INVERT: {
-        fraction_one.BitwiseInvert(fraction_two);
+        ~fraction_one;
+        fraction_one.Print();
+        ~fraction_two;
         fraction_two.Print();
       } break;
       case ITERATE_POSITIVE: {
-        fraction_one.IteratePositive(fraction_two);
+        fraction_one++;
+        fraction_two++;
+        fraction_one.Print();
         fraction_two.Print();
       } break;
       case ITERATE_NEGATIVE: {
-        fraction_one.IterateNegative(fraction_two);
+        fraction_one--;
+        fraction_two--;
+        fraction_one.Print();
         fraction_two.Print();
       } break;
       case PRINT: {
@@ -128,22 +134,28 @@ int main() {
         fraction_two.Print();
       } break;
       case IS_LESS_THAN: {
-        std::cout << fraction_one.IsLessThan(fraction_two) << "\n";
+        bool result = fraction_one < fraction_two;
+        std::cout << result << "\n";
       } break;
       case IS_GREATER_THAN: {
-        std::cout << fraction_one.IsGreaterThan(fraction_two) << "\n";
+        bool result = fraction_one > fraction_two;
+        std::cout << result << "\n";
       } break;
       case IS_LESS_THAN_OR_EQUAL: {
-        std::cout << fraction_one.IsLessThanOrEqual(fraction_two) << "\n";
+        bool result = fraction_one <= fraction_two;
+        std::cout << result << "\n";
       } break;
       case IS_GREATER_THAN_OR_EQUAL: {
-        std::cout << fraction_one.IsGreaterThanOrEqual(fraction_two) << "\n";
+        bool result = fraction_one >= fraction_two;
+        std::cout << result << "\n";
       } break;
       case IS_EQUAL: {
-        std::cout << fraction_one.IsEqual(fraction_two) << "\n";
+        bool result = fraction_one == fraction_two;
+        std::cout << result << "\n";
       } break;
       case IS_NOT_EQUAL: {
-        std::cout << fraction_one.IsNotEqual(fraction_two) << "\n";
+        bool result = fraction_one != fraction_two;
+        std::cout << result << "\n";
       } break;
       case NEGATE: {
         std::cout << fraction_one.Negate() << "\n";
