@@ -181,14 +181,14 @@ bool Fraction::operator!=(const Fraction& one_fraction) {
   return (float)numerator/denominator!=(float)one_fraction.numerator/one_fraction.denominator;
 };
 
-int Fraction::Negate() {
-  return !(float)numerator/denominator;
+bool Fraction::operator!(void) {
+  return (numerator==0);
 };
 
-double Fraction::CastToDouble() {
-  return (double)numerator/denominator;
-};
+Fraction::operator double() {
+	return (double)numerator / (double)denominator;
+}
 
-float Fraction::CastToFloat() {
-  return (float)numerator/denominator;
-};
+Fraction::operator float() {
+	return (float)numerator / (float)denominator;
+}

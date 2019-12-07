@@ -37,10 +37,10 @@ public:
   bool operator>=(const Fraction& one_fraction);
   bool operator==(const Fraction& one_fraction);
   bool operator!=(const Fraction& one_fraction);
+  bool operator!(void);
 
-  int Negate();
-  double CastToDouble();
-  float CastToFloat();
+  operator double(void);
+  operator float(void);
 };
 
 #endif

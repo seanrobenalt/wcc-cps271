@@ -158,16 +158,18 @@ int main() {
         std::cout << result << "\n";
       } break;
       case NEGATE: {
-        std::cout << fraction_one.Negate() << "\n";
-        std::cout << fraction_two.Negate() << "\n";
+        bool result1 = !fraction_one;
+        bool result2 = !fraction_two;
+        std::cout << result1 << "\n";
+        std::cout << result2 << "\n";
       } break;
       case CAST_TO_DOUBLE: {
-        std::cout << fraction_one.CastToDouble() << "\n";
-        std::cout << fraction_two.CastToDouble() << "\n";
+        std::cout << double(fraction_one) << "\n";
+        std::cout << double(fraction_two) << "\n";
       } break;
       case CAST_TO_FLOAT: {
-        std::cout << fraction_one.CastToFloat() << "\n";
-        std::cout << fraction_two.CastToFloat() << "\n";
+        std::cout << float(fraction_one) << "\n";
+        std::cout << float(fraction_two) << "\n";
       } break;
       case QUIT: return 0; break;
       case INVALID: cout << "\n\nSomething went wrong. Try running the program again.\n"; break;
