@@ -41,6 +41,8 @@ public:
 
   operator double(void);
   operator float(void);
+
+  friend istream &operator>>(istream &in, Fraction &f);
 };
 
 #endif

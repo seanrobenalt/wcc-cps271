@@ -192,3 +192,17 @@ Fraction::operator double() {
 Fraction::operator float() {
 	return (float)numerator / (float)denominator;
 }
+
+istream &operator>>(istream &in, Fraction &f)
+{
+  int numer;
+  int denom;
+
+	if (in >> numer >> denom) {
+    f.numerator = numer;
+    f.denominator = denom;
+  	f.simplify(f.numerator, f.denominator);
+  };
+
+	return in;
+}
