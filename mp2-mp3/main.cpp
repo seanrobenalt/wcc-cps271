@@ -31,6 +31,23 @@ bool compareFractionForList(Fraction a, Fraction b)
   return a < b;
 }
 
+bool fractionDuplicate(Fraction a, Fraction b)
+{
+	return a == b;
+}
+
+vector<Fraction> merge(vector<Fraction> fVector, list<Fraction> fList)
+{
+	vector<Fraction> merged = fVector;
+
+	for (const Fraction & f : fList)
+	{
+		merged.push_back(f);
+	}
+
+	return sortVector(merged, merged.size());
+}
+
 int main() {
 
   vector<Fraction> fractionVector;
@@ -70,5 +87,14 @@ int main() {
 
   cout << "------------------------- \n";
 
-  return 0;
+	vector<Fraction> allFractions = merge(sortedVector, fractionList);
+
+	allFractions.erase(unique(allFractions.begin(), allFractions.end(), fractionDuplicate), allFractions.end());
+
+	cout << "Fractions from list and vector merged & sorted, w/ no duplicates: \n";
+	for (vector<Fraction>::iterator allIt = allFractions.begin(); allIt != allFractions.end(); ++allIt)
+    allIt->Print();
+
+	cout << "------------------------- \n";
+	return 0;
 }
