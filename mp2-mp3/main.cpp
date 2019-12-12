@@ -48,6 +48,13 @@ vector<Fraction> merge(vector<Fraction> fVector, list<Fraction> fList)
 	return sortVector(merged, merged.size());
 }
 
+template <class T, class U>
+void printCollection(T collection, U iterator)
+{
+	for (iterator = collection.begin(); iterator != collection.end(); ++iterator)
+		iterator->Print();
+}
+
 int main() {
 
   vector<Fraction> fractionVector;
@@ -65,8 +72,8 @@ int main() {
 
   vector<Fraction> sortedVector = sortVector(fractionVector, fractionVector.size());
   cout << "Fractions to vector sorted: \n";
-  for (vector<Fraction>::iterator vectorIt = sortedVector.begin(); vectorIt != sortedVector.end(); ++vectorIt)
-		vectorIt->Print();
+	vector<Fraction>::iterator vectorIt;
+	printCollection<vector<Fraction>, vector<Fraction>::iterator>(sortedVector, vectorIt);
 
   cout << "--------------------------- \n";
 
@@ -82,8 +89,8 @@ int main() {
 
   fractionList.sort(compareFractionForList);
   cout << "Fractions to list sorted: \n";
-  for (list<Fraction>::iterator listIt = fractionList.begin(); listIt != fractionList.end(); ++listIt)
-    listIt->Print();
+	list<Fraction>::iterator listIt;
+	printCollection<list<Fraction>, list<Fraction>::iterator>(fractionList, listIt);
 
   cout << "------------------------- \n";
 
@@ -92,8 +99,8 @@ int main() {
 	allFractions.erase(unique(allFractions.begin(), allFractions.end(), fractionDuplicate), allFractions.end());
 
 	cout << "Fractions from list and vector merged & sorted, w/ no duplicates: \n";
-	for (vector<Fraction>::iterator allIt = allFractions.begin(); allIt != allFractions.end(); ++allIt)
-    allIt->Print();
+	vector<Fraction>::iterator allIt;
+	printCollection<vector<Fraction>, vector<Fraction>::iterator>(allFractions, allIt);
 
 	cout << "------------------------- \n";
 	return 0;
